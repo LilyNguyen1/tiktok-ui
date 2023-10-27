@@ -1,12 +1,103 @@
 .wrapper {
-    width: 100%;
-    height: var(--default-layout-header-height);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
-    display: flex;
-    justify-content: center;
+  --search-border-radius: 92px;
+  --search-height: 48px;
+  --search-top-spacer: 9px;
+  --search-btn-after-height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+  --search-button-width: 52px;
+
+  width: 100%;
+  height: var(--default-layout-header-height);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
 }
 
 .inner {
+  height: 100%;
+  width: var(--default-layout-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  position: relative;
+  width: 500px;
+  height: var(--search-height);
+  padding: 0 0 0 16px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: var(--search-border-radius);
+  border: 1.5px solid transparent;
+
+  input {
+    flex: 1px;
     height: 100%;
-    width: var(--default-layout-width);
+    font-size: 1.6rem;
+    caret-color: var(--primary);
+    font-weight: 400;
+    color: rgba(22, 24, 35, 1);
+    background-color: transparent;
+  }
+
+  input:not(:placeholder-shown) ~ .search-btn {
+    color: rgb(22, 24, 35);
+  }
+
+  &:hover {
+    border: 1.5px solid rgba(22, 24, 35, 0.2);
+  }
+
+  &:hover .search-btn {
+    color: rgb(22, 24, 35);
+    background-color: rgba(22, 24, 35, 0.03);
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: var(--search-top-spacer);
+    right: var(--search-button-width);
+    width: 1px;
+    height: var(--search-btn-after-height);
+    background: rgba(22, 24, 35, 0.12);
+  }
+}
+
+.clear,
+.loading {
+  position: absolute;
+  right: calc(var(--search-button-width) + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(22, 24, 35, 0.34);
+}
+
+.loading {
+}
+
+.search-btn {
+  width: var(--search-button-width);
+  height: 100%;
+  color: rgba(22, 24, 35, 0.34);
+  font-size: 2rem;
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+}
+
+.actions {
+}
+
+.upload {
+  // display: flex;
+}
+
+.profile {
 }
