@@ -25,9 +25,20 @@
   align-items: center;
 }
 
+.search,
+.search-result {
+  width: 500px;
+}
+
+.search-title {
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 5px 12px;
+}
+
 .search {
   position: relative;
-  width: 500px;
   height: var(--search-height);
   padding: 0 0 0 16px;
   display: flex;
