@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Sans';
+  font-size: 1.6rem;
+  padding: 6.5px 8px;
+  font-weight: 600;
+  min-width: 100px;
+  border-radius: 4px;
+  line-height: 21px;
+  cursor: pointer;
+  background-color: var(--white);
+  border: 1px solid transparent;
+  user-select: none;
+
+  + .wrapper {
+    margin-left: 8px;
+  }
+
+//Disabled
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+//Button Type
+.primary {
+  color: var(--white);
+  background-color: var(--primary);
+  &:hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+  }
+}
+
+.outline {
+  color: var(--primary);
+  border-color: currentColor;
+
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.08);
+  }
+}
+
+.text {
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 2px;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.rounded {
+  // border-radius: 999px;
+
+}
+
+
+//Button Size
+.small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  min-width: 96px;
+  font-weight: 500;
+}
+
+.large {
+  font-weight: 500;
+  min-width: 106px;
+  min-height: 28px;
+  width: 164px;
+  height: 48px;
+}

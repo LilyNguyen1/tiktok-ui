@@ -3,20 +3,20 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleXmark,
-  faInbox,
   faLaptop,
+  faInbox,
   faMagnifyingGlass,
-  faPaperPlane,
   faPlus,
+  faPaperPlane,
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
-// import 'tippy.js/dist/tippy.css'; // optional for styling
 
+import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
+import AccountItem from '~/components/AccountItem';
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +27,7 @@ function Header() {
     setTimeout(() => {
       setSearchResult([]);
     }, 0);
-  });
+  }, []);
 
   return (
     <header className={cx('wrapper')}>
@@ -69,14 +69,45 @@ function Header() {
 
         {/* Actions */}
         <div className={cx('actions')}>
-          <div className={cx('upload')}>
-            <FontAwesomeIcon icon={faPlus} />
-            <p>Tải lên</p>
+          {/* Upload */}
+          <div className={cx('upload-container')}>
+            <a href="./" className={cx('upload-link')}>
+              <div className={cx('upload')}>
+                <FontAwesomeIcon className={cx('upload-icon')} icon={faPlus} />
+                <span className={cx('upload-text')}>Tải lên</span>
+              </div>
+            </a>
           </div>
-          <FontAwesomeIcon icon={faLaptop} />
-          <FontAwesomeIcon icon={faPaperPlane} />
-          <FontAwesomeIcon icon={faInbox} />
-          <div className={cx('profile')}></div>
+
+          {/* Login & Register */}
+          {/* <Button primary>Đăng nhập</Button> */}
+          <Button primary>Log in</Button>
+
+
+          {/* Download */}
+          {/* <div className={cx('download')}>
+            <FontAwesomeIcon icon={faLaptop} />
+          </div> */}
+
+          {/* Message */}
+          {/* <div className={cx('message')}>
+            <FontAwesomeIcon icon={faPaperPlane} />
+          </div> */}
+
+          {/* Inbox */}
+          {/* <div className={cx('inbox')}>
+            <FontAwesomeIcon icon={faInbox} />
+          </div> */}
+
+          {/* Profile */}
+          {/* <div className={cx('profile')}>
+            <a href="./" className={cx('profile-link')}>
+              <div>
+                <img className={cx('profile-img')} src={images.profile} alt="img-profile" />
+              </div>
+            </a>
+          </div>  */}
+
         </div>
       </div>
     </header>

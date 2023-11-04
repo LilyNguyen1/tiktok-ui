@@ -5,7 +5,7 @@
   --search-btn-after-height: calc(var(--search-height) - var(--search-top-spacer) * 2);
   --search-button-width: 52px;
 
-  width: 100%;
+  width: var(--default-layout-width);
   height: var(--default-layout-header-height);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
   display: flex;
@@ -15,6 +15,7 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
+  padding: 0 24px 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,6 +24,10 @@
 .logo {
   display: flex;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .search,
@@ -104,11 +109,96 @@
 }
 
 .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 48px;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  min-width: 110px;
+  height: 36px;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 2px;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+    cursor: pointer;
+  }
+}
+
+.upload-link {
+  display: block;
 }
 
 .upload {
-  // display: flex;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5.5px 18.5px;
+}
+
+.upload-icon {
+  margin-right: 8px;
+}
+
+.download,
+.message,
+.inbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.download {
+  margin-left: 14px;
+}
+
+.message,
+.inbox {
+  margin-left: 16px;
+}
+
+.inbox {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+    right: -14px;
+    content: '35';
+    min-width: 10px;
+    height: 20px;
+    color: var(--white);
+    font-size: 1.4rem;
+    border-radius: 10px;
+    background-color: var(--primary);
+    padding: 0 6px;
+  }
 }
 
 .profile {
+}
+
+.profile-img {
+  display: block;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-left: 24px;
+  float: none;
 }
