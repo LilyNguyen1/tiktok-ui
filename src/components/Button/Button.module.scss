@@ -25,6 +25,11 @@
   }
 }
 
+.icon + .title,
+.title + .icon {
+  margin-left: 8px;
+}
+
 //Button Type
 .primary {
   color: var(--white);
@@ -50,12 +55,6 @@
     background-color: rgba(22, 24, 35, 0.03);
   }
 }
-
-.rounded {
-  // border-radius: 999px;
-
-}
-
 
 //Button Size
 .small {

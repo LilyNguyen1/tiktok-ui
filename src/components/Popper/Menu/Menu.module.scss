@@ -1,0 +1,38 @@
+//Menu-wrapper
+
+.menu-list {
+  width: 224px;
+
+  .menu-item {
+    margin-left: 0;
+    padding: 12.5px 16px;
+  }
+
+  .menu-popper {
+    padding-bottom: 8px;
+    min-height: 160px;
+  }
+}
+
+//Menu-item
+.menu-item {
+  justify-content: start;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.menu-icon {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.menu-text {
+  font-weight: 500;
+}
