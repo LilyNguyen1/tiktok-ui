@@ -15,7 +15,8 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
-  padding: 0 24px 0 16px;
+  padding-left: var(--default-layout-horizontal-spacer-left);
+  padding-right: var(--default-layout-horizontal-spacer-right);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,8 +123,8 @@
   margin-left: 28px;
   padding: 4px 8px;
   background-color: transparent;
+  cursor: pointer;
 }
-
 
 .upload-container {
   display: flex;

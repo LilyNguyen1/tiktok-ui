@@ -5,12 +5,12 @@
 
   .menu-item {
     margin-left: 0;
-    padding: 12.5px 16px;
+    padding: 10.5px 16px;
   }
 
   .menu-popper {
     padding-bottom: 8px;
-    min-height: 160px;
+    min-height: 142px;
   }
 }
 
@@ -36,3 +36,28 @@
 .menu-text {
   font-weight: 500;
 }
+
+//Header 
+
+.header {
+  position: relative;
+  height: 50px;
+  margin-top: -8px;
+}
+
+.back-btn {
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // font-style: Ariel, sans-serif;
+  font-weight: 500;
+}
+

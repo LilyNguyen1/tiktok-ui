@@ -6,9 +6,12 @@
   --white: #fff;
   --black: #000;
   --text-color: #333;
+
   //Default layout
   --default-layout-header-height: 60px;
-  --default-layout-width: 1432px;
+  --default-layout-width: 1440px;
+  --default-layout-horizontal-spacer-left: 16px;
+  --default-layout-horizontal-spacer-right: 24px;
 }
 
 * {

@@ -7,8 +7,10 @@
 .container {
   width: var(--default-layout-width);
   display: flex;
+  padding-left: var(--default-layout-horizontal-spacer-left);
+  padding-right: var(--default-layout-horizontal-spacer-right);
 }
 
 .content {
-    flex: 1;
+  flex: 1;
 }
