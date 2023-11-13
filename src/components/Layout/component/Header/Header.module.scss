@@ -109,6 +109,8 @@
   border-bottom-right-radius: var(--search-border-radius);
 }
 
+//Actions
+
 .actions {
   display: flex;
   flex-direction: row;
@@ -116,14 +118,7 @@
   align-items: center;
   position: relative;
   height: 48px;
-}
-
-.more-btn {
-  font-size: 2rem;
-  margin-left: 28px;
-  padding: 4px 8px;
-  background-color: transparent;
-  cursor: pointer;
+  color: rgb(22, 24, 35);;
 }
 
 .upload-container {
@@ -203,11 +198,20 @@
 .profile {
 }
 
-.profile-img {
+.avatar-img {
   display: block;
   border-radius: 50%;
   width: 32px;
   height: 32px;
   margin-left: 24px;
-  float: none;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.more-btn {
+  font-size: 2rem;
+  margin-left: 28px;
+  padding: 4px 8px;
+  background-color: transparent;
+  cursor: pointer;
 }

@@ -1,7 +1,10 @@
 //Menu-wrapper
 
 .menu-list {
-  width: 224px;
+  // width: 334px;
+  // width of currentUser Menu
+  min-width: 224px;
+  margin-top: 10px;
 
   .menu-item {
     margin-left: 0;
@@ -21,6 +24,12 @@
   cursor: pointer;
   border-radius: 0;
   border: none;
+  font-weight: 400;
+
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
+
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
   }
@@ -37,7 +46,7 @@
   font-weight: 500;
 }
 
-//Header 
+//Header
 
 .header {
   position: relative;
@@ -57,7 +66,5 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // font-style: Ariel, sans-serif;
   font-weight: 500;
 }
-

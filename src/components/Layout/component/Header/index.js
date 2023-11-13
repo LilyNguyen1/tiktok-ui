@@ -10,13 +10,20 @@ import {
   faPaperPlane,
   faSpinner,
   faEllipsisVertical,
-  faGlobe,
   faCircleQuestion,
   faKeyboard,
   faEarthAsia,
+  faUser,
+  faCoins,
+  faGear,
+  faSignOut,
+  faMoon,
+  faHouse,
+  faLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
-
+import HeadlessTippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
@@ -64,6 +71,7 @@ const MENU_ITEMS = [
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+  const currentUser = true;
 
   useEffect(() => {
     setTimeout(() => {
@@ -71,9 +79,55 @@ function Header() {
     }, 0);
   }, []);
 
+  //Handle Logic
   const handleMenuChange = (menuItem) => {
-    console.log(menuItem)
-  }
+    switch (menuItem.type) {
+      case 'language':
+        //
+        break;
+      default:
+    }
+  };
+
+  const userMenu = [
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: 'Xem hồ sơ',
+      to: '/@hoaa',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: 'Nhận xu',
+      to: '/coin',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faHouse} />,
+      title: 'Bộ công cụ dành cho doanh nghiệp',
+      to: '/business',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faLightbulb} />,
+      title: 'Trung tâm Nhà sáng tạo LIVE',
+      to: '/idea',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: 'Cài đặt',
+      to: '/settings',
+    },
+    ...MENU_ITEMS,
+    {
+      icon: <FontAwesomeIcon icon={faMoon} />,
+      title: 'Chế độ tối',
+      to: '/darktheme',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      title: 'Đăng xuất',
+      to: '/logout',
+      separate: true,
+    },
+  ];
 
   return (
     <header className={cx('wrapper')}>
@@ -84,7 +138,7 @@ function Header() {
         </div>
 
         {/* Search */}
-        <Tippy
+        <HeadlessTippy
           interactive={true}
           visible={searchResult.length > 0}
           render={(attrs) => (
@@ -111,9 +165,8 @@ function Header() {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
-        </Tippy>
+        </HeadlessTippy>
 
-        {/* Actions */}
         <div className={cx('actions')}>
           {/* Upload */}
           <div className={cx('upload-container')}>
@@ -125,44 +178,58 @@ function Header() {
             </a>
           </div>
 
-          {/* Login & Register */}
-          {/* <Button primary>Đăng nhập</Button> */}
-          <Button primary>Log in</Button>
-
-          {/* menu */}
-          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-            <button className={cx('more-btn')}>
-              <FontAwesomeIcon icon={faEllipsisVertical} />
-            </button>
-          </Menu>
-
-          {/* Download */}
-          {/* <div className={cx('download')}>
-            <FontAwesomeIcon icon={faLaptop} />
-          </div> */}
-
-          {/* Message */}
-          {/* <div className={cx('message')}>
-            <FontAwesomeIcon icon={faPaperPlane} />
-          </div> */}
-
-          {/* Inbox */}
-          {/* <div className={cx('inbox')}>
-            <FontAwesomeIcon icon={faInbox} />
-          </div> */}
-
-          {/* Profile */}
-          {/* <div className={cx('profile')}>
-            <a href="./" className={cx('profile-link')}>
-              <div>
-                <img className={cx('profile-img')} src={images.profile} alt="img-profile" />
+          {currentUser ? (
+            <>
+              {/* Download */}
+              <div className={cx('download')}>
+                <FontAwesomeIcon icon={faLaptop} />
               </div>
-            </a>
-          </div>  */}
+
+              {/* Message */}
+
+              <Tippy delay={(0, 200)} content="Tin nhắn" placement="bottom">
+                <div className={cx('message')}>
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                </div>
+              </Tippy>
+
+              {/* Inbox */}
+              <div className={cx('inbox')}>
+                <FontAwesomeIcon icon={faInbox} />
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Login & Register  */}
+              {/* <Button text>Đăng nhập</Button> */}
+              <Button primary>Log in</Button>
+            </>
+          )}
+
+          <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+            {currentUser ? (
+              <div className={cx('avatar')}>
+                <a href="./" className={cx('avatar-link')}>
+                  <div>
+                    <img className={cx('avatar-img')} src={images.avatar} alt="Koala" />
+                  </div>
+                </a>
+              </div>
+            ) : (
+              <button className={cx('more-btn')}>
+                <FontAwesomeIcon icon={faEllipsisVertical} />
+              </button>
+            )}
+          </Menu>
         </div>
+        {/* actions ends */}
       </div>
+      {/* inner ends */}
     </header>
   );
 }
 
 export default Header;
+// setTimeout(() => {
+//     debugger;
+// }, 3000)
