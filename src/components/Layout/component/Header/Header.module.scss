@@ -51,7 +51,7 @@
   align-items: center;
   background-color: rgba(22, 24, 35, 0.06);
   border-radius: var(--search-border-radius);
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
 
   input {
     flex: 1px;
@@ -68,12 +68,12 @@
   }
 
   &:hover {
-    border: 1.5px solid rgba(22, 24, 35, 0.2);
+    border: 1px solid rgba(22, 24, 35, 0.2);
   }
 
   &:hover .search-btn {
-    color: rgb(22, 24, 35);
-    background-color: rgba(22, 24, 35, 0.03);
+    color: rgba(22, 24, 35, 0.34);
+    background-color: rgba(22, 24, 35, 0.08);
     cursor: pointer;
   }
 
@@ -97,13 +97,12 @@
   color: rgba(22, 24, 35, 0.34);
 }
 
-.loading {
-}
-
 .search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: var(--search-button-width);
   height: 100%;
-  color: rgba(22, 24, 35, 0.34);
   font-size: 2rem;
   border-top-right-radius: var(--search-border-radius);
   border-bottom-right-radius: var(--search-border-radius);
@@ -118,7 +117,7 @@
   align-items: center;
   position: relative;
   height: 48px;
-  color: rgb(22, 24, 35);;
+  color: rgb(22, 24, 35);
 }
 
 .upload-container {
@@ -146,7 +145,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 5.5px 18.5px;
+  padding: 6px 17px;
 }
 
 .upload-icon {

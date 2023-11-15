@@ -3,11 +3,6 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleXmark,
-  faLaptop,
-  faInbox,
-  faMagnifyingGlass,
-  faPlus,
-  faPaperPlane,
   faSpinner,
   faEllipsisVertical,
   faCircleQuestion,
@@ -30,6 +25,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 
 const cx = classNames.bind(styles);
 
@@ -162,7 +159,7 @@ function Header() {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon className={cx('search-icon')} />
             </button>
           </div>
         </HeadlessTippy>
@@ -172,7 +169,7 @@ function Header() {
           <div className={cx('upload-container')}>
             <a href="./" className={cx('upload-link')}>
               <div className={cx('upload')}>
-                <FontAwesomeIcon className={cx('upload-icon')} icon={faPlus} />
+                <UploadIcon className={cx('upload-icon')} />
                 <span className={cx('upload-text')}>Tải lên</span>
               </div>
             </a>
@@ -182,20 +179,20 @@ function Header() {
             <>
               {/* Download */}
               <div className={cx('download')}>
-                <FontAwesomeIcon icon={faLaptop} />
+                <DownloadIcon />
               </div>
 
               {/* Message */}
 
               <Tippy delay={(0, 200)} content="Tin nhắn" placement="bottom">
                 <div className={cx('message')}>
-                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <MessageIcon />
                 </div>
               </Tippy>
 
               {/* Inbox */}
               <div className={cx('inbox')}>
-                <FontAwesomeIcon icon={faInbox} />
+                <InboxIcon />
               </div>
             </>
           ) : (
@@ -211,7 +208,12 @@ function Header() {
               <div className={cx('avatar')}>
                 <a href="./" className={cx('avatar-link')}>
                   <div>
-                    <img className={cx('avatar-img')} src={images.avatar} alt="Koala" />
+                    <Image
+                      className={cx('avatar-img')}
+                      src={images.avatar}
+                      alt="Koala"
+                      // fallback="https://www.facebook.com/photo/?fbid=5352274218227323&set=a.224248974363232"
+                    />
                   </div>
                 </a>
               </div>
