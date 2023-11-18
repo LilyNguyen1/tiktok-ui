@@ -129,7 +129,7 @@
   height: 36px;
   border: 1px solid rgba(22, 24, 35, 0.12);
   border-radius: 2px;
-  margin-right: 8px;
+  margin-right: 4px;
 
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
@@ -152,57 +152,62 @@
   margin-right: 8px;
 }
 
-.download,
-.message,
-.inbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
 .download {
-  margin-left: 14px;
+  padding-top: 9px;
+  width: 216px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
 }
 
-.message,
-.inbox {
-  margin-left: 16px;
+.download-icon {
+  padding-top: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116px;
+  height: 100px;
 }
 
-.inbox {
-  position: relative;
-
-  &::after {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: -5px;
-    right: -14px;
-    content: '35';
-    min-width: 10px;
-    height: 20px;
-    color: var(--white);
-    font-size: 1.4rem;
-    border-radius: 10px;
-    background-color: var(--primary);
-    padding: 0 6px;
-  }
+.download-text {
+  margin-top: 21px;
+  color: rgb(22, 24, 35);
+  font-family: 'IBM Plex Sans', TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 21px;
+  text-align: center;
+  padding: 0 10px;
 }
 
-.profile {
+.download-button {
+  width: 100%;
+  margin: 20px 0 0 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
-.avatar-img {
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  padding: 0px 6px;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  font-family: 'ProximaNova', sans-serif;
+  background-color: var(--primary);
+}
+
+.user-avatar {
   display: block;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  margin-left: 24px;
+  margin-left: 18px;
   object-fit: cover;
   cursor: pointer;
 }
@@ -212,5 +217,16 @@
   margin-left: 28px;
   padding: 4px 8px;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.action-btn {
+  position: relative;
+  display: flex;
+  font-size: 2.2rem;
+  color: #161823;
+  background-color: transparent;
+  padding: 4px 10px;
+  margin-left: 8px;
   cursor: pointer;
 }

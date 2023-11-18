@@ -16,7 +16,6 @@ import {
   faHouse,
   faLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Button from '~/components/Button';
@@ -25,7 +24,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
-import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon, SearchIcon } from '~/components/Icons';
+import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon, SearchIcon, LaptopIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 
 const cx = classNames.bind(styles);
@@ -135,7 +134,8 @@ function Header() {
         </div>
 
         {/* Search */}
-        <HeadlessTippy
+        <Tippy
+          // visible
           interactive={true}
           visible={searchResult.length > 0}
           render={(attrs) => (
@@ -159,10 +159,10 @@ function Header() {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <SearchIcon className={cx('search-icon')} />
+              <SearchIcon />
             </button>
           </div>
-        </HeadlessTippy>
+        </Tippy>
 
         <div className={cx('actions')}>
           {/* Upload */}
@@ -178,22 +178,54 @@ function Header() {
           {currentUser ? (
             <>
               {/* Download */}
-              <div className={cx('download')}>
-                <DownloadIcon />
-              </div>
+              {/* <Tippy
+                // visible
+                interactive
+                delay={[0, 700]}
+                offset={[12, 10]}
+                placement="bottom"
+                render={(attrs) => (
+                  <div className={cx('download')} tabIndex="-1" {...attrs}>
+                    <PopperWrapper>
+                      <div className={cx('download-icon')}>
+                        <LaptopIcon />
+                      </div>
+                      <p className={cx('download-text')}>Ứng dụng TikTok cho máy tính</p>
+                      <Button primary large className={cx('download-button')}>
+                        Tải về
+                      </Button>
+                    </PopperWrapper>
+                  </div>
+                )}
+                // onHide={() => console.log('hide this')}
+                //làm đến đây không biết logic nên ẩn popper
+              >
+                <div className={cx('action-btn')} >
+                  <DownloadIcon />
+                </div>
+              </Tippy> */}
+
+              {/* Download */}
+              <Tippy delay={[0, 50]} content="Tải về" placement="bottom">
+                <div className={cx('action-btn')}>
+                  <DownloadIcon />
+                </div>
+              </Tippy>
 
               {/* Message */}
-
-              <Tippy delay={(0, 200)} content="Tin nhắn" placement="bottom">
-                <div className={cx('message')}>
+              <Tippy delay={[0, 50]} content="Tin nhắn" placement="bottom">
+                <div className={cx('action-btn')}>
                   <MessageIcon />
                 </div>
               </Tippy>
 
               {/* Inbox */}
-              <div className={cx('inbox')}>
-                <InboxIcon />
-              </div>
+              <Tippy delay={[0, 50]} content="Hộp thư" placement="bottom">
+                <div className={cx('action-btn')}>
+                  <InboxIcon />
+                  <span className={cx('badge')}>12</span>
+                </div>
+              </Tippy>
             </>
           ) : (
             <>
@@ -207,14 +239,12 @@ function Header() {
             {currentUser ? (
               <div className={cx('avatar')}>
                 <a href="./" className={cx('avatar-link')}>
-                  <div>
-                    <Image
-                      className={cx('avatar-img')}
-                      src={images.avatar}
-                      alt="Koala"
-                      // fallback="https://www.facebook.com/photo/?fbid=5352274218227323&set=a.224248974363232"
-                    />
-                  </div>
+                  <Image
+                    className={cx('user-avatar')}
+                    src={images.avatar}
+                    alt="Koala"
+                    // fallback=""
+                  />
                 </a>
               </div>
             ) : (
