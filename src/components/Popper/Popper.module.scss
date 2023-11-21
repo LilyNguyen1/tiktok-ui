@@ -4,13 +4,13 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
   border-radius: 8px;
   padding-top: 8px;
-  // max-height: min((100vh - 96px) - 60px, 760px);
+  max-height: min((100vh - 96px) - 60px, 760px);
   min-height: 200px;
   overflow: hidden auto;
   list-style-type: none;
   padding-inline-start: 0px;
   flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center; ẩn max-hight khi có popper cho download icon.
 }

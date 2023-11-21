@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCircleXmark,
-  faSpinner,
   faEllipsisVertical,
   faCircleQuestion,
   faKeyboard,
@@ -19,13 +16,12 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Button from '~/components/Button';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
-import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon, SearchIcon, LaptopIcon } from '~/components/Icons';
+import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 import Image from '~/components/Images';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -66,14 +62,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
   const currentUser = true;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([]);
-    }, 0);
-  }, []);
 
   //Handle Logic
   const handleMenuChange = (menuItem) => {
@@ -134,36 +123,9 @@ function Header() {
         </div>
 
         {/* Search */}
-        <Tippy
-          // visible
-          interactive={true}
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <h4 className={cx('search-title')}>Tài khoản</h4>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx('search')}>
-            <input type="text" placeholder="Tìm kiếm" spellCheck={false} />
+        <Search />
 
-            <button className={cx('clear')}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-            <button className={cx('search-btn')}>
-              <SearchIcon />
-            </button>
-          </div>
-        </Tippy>
-
+        {/* Actions */}
         <div className={cx('actions')}>
           {/* Upload */}
           <div className={cx('upload-container')}>

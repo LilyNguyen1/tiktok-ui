@@ -1,0 +1,91 @@
+.search,
+.search-result {
+  width: 500px;
+}
+
+.search {
+  position: relative;
+  height: var(--search-height);
+  padding: 0 0 0 16px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: var(--search-border-radius);
+  border: 1px solid transparent;
+
+  input {
+    flex: 1;
+    height: 100%;
+    font-size: 1.6rem;
+    caret-color: var(--primary);
+    font-weight: 400;
+    color: rgba(22, 24, 35, 1);
+    background-color: transparent;
+  }
+
+  // input:not(:placeholder-shown) ~ .search-btn {
+  //   color: rgba(22, 24, 35, 1);
+  // }
+  //nghĩa là khi input chỉ đang focus mà không có text trong ô placeholder, thì search-btn có sẽ có màu này.
+
+  &:hover {
+    border: 1px solid rgba(22, 24, 35, 0.2);
+  }
+
+  &:hover .search-btn {
+    color: rgba(22, 24, 35, 1);
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: var(--search-top-spacer);
+    right: var(--search-button-width);
+    width: 1px;
+    height: var(--search-btn-after-height);
+    background: rgba(22, 24, 35, 0.12);
+  }
+
+  &:focus-within {
+    border-color: rgba(22, 24, 35, 0.2);
+  }
+}
+
+.search-title {
+  color: rgba(22, 24, 35, 0.5);
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 5px 12px;
+}
+
+.clear,
+.loading {
+  position: absolute;
+  right: calc(var(--search-button-width) + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--search-button-width);
+  height: 100%;
+  font-size: 2rem;
+  color: rgba(22, 24, 35, 0.34);
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+
+  &:active {
+    background-color: rgba(22, 24, 35, 0.06);
+  }
+
+  &:hover {
+    color: rgb(22, 24, 35);
+    background-color: rgba(22, 24, 35, 0.03);
+    cursor: pointer;
+  }
+}
