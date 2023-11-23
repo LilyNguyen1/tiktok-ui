@@ -7,6 +7,7 @@ import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { useDebounce } from '~/routes/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -16,17 +17,26 @@ function Search() {
   const [inputFocus, setInputFocus] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const debounced = useDebounce(searchValue, 700);
+  //1: ''
+  //2: h
+  //3: ho
+  //4: hoa
+  //xem kỹ lại logic B105 ~ 13p
+  //mỗi lần user bấm thêm 1 chữ cái như vậy thì vẫn lọt hàm useDebounce
+  //tuy nhiên vì có setTimeout delay 700ms, vậy nên chỉ tính lần đầu là chuỗi rỗng, lần 2 là 'hoa', chứ ko tính 'h' or 'ho'
+
   const inputRef = useRef('');
 
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
 
     setLoading(true); //before call API set it true
 
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
       .then((res) => res.json())
       .then((res) => {
         setSearchResult(res.data);
@@ -35,7 +45,7 @@ function Search() {
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   const handleClear = () => {
     setSearchValue('');
