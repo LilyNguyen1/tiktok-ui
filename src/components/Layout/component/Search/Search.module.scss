@@ -17,6 +17,7 @@
     flex: 1;
     height: 100%;
     font-size: 1.6rem;
+    font-family: var(--font-family);
     caret-color: var(--primary);
     font-weight: 400;
     color: rgba(22, 24, 35, 1);
@@ -69,7 +70,7 @@
 }
 
 .loading {
-  animation: spinner .9s linear infinite;
+  animation: spinner 0.9s linear infinite;
 }
 
 @keyframes spinner {

@@ -7,6 +7,8 @@
   --black: #000;
   --text-color: #161823;
 
+  --font-family: 'IBM Plex Sans';
+
   //Default layout
   --default-layout-header-height: 60px;
   --default-layout-width: 1440px;
@@ -25,7 +27,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans';
+  font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -63,5 +65,5 @@ body {
 
   .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
     top: -8px;
-}
+  }
 }

@@ -13,15 +13,18 @@ import {
   faHouse,
   faLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
+import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
+
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -119,7 +122,9 @@ function Header() {
       <div className={cx('inner')}>
         {/* Logo */}
         <div className={cx('logo')}>
-          <img src={images.logo} alt="Tiktok" />
+          <Link to={routesConfig.home} className={cx('logo-link')}>
+            <img src={images.logo} alt="Tiktok" />
+          </Link>
         </div>
 
         {/* Search */}
@@ -129,7 +134,7 @@ function Header() {
         <div className={cx('actions')}>
           {/* Upload */}
           <div className={cx('upload-container')}>
-            <a href="./" className={cx('upload-link')}>
+            <a href={routesConfig.upload} className={cx('upload-link')}>
               <div className={cx('upload')}>
                 <UploadIcon className={cx('upload-icon')} />
                 <span className={cx('upload-text')}>Tải lên</span>
@@ -200,7 +205,7 @@ function Header() {
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
               <div className={cx('avatar')}>
-                <a href="./" className={cx('avatar-link')}>
+                <a href={routesConfig.profile} className={cx('avatar-link')}>
                   <Image
                     className={cx('user-avatar')}
                     src={images.avatar}

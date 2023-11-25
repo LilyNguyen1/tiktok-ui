@@ -9,7 +9,7 @@ import { SearchIcon } from '~/components/Icons';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/routes/hooks';
-import * as searchServices from '~/apiServices/searchService'
+import * as searchServices from '~/apiServices/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -40,15 +40,15 @@ function Search() {
     // setLoading(false);
 
     const fetchApi = async () => {
-      setLoading(true)//before call API set it true
-      const result = await searchServices.search(debounced)
-      setSearchResult(result)
+      setLoading(true); //before call API set it true
 
-      setLoading(false)
-    }
+      const result = await searchServices.search(debounced);
 
-    fetchApi()
+      setSearchResult(result);
+      setLoading(false);
+    };
 
+    fetchApi();
   }, [debounced]);
 
   const handleClear = () => {
@@ -58,6 +58,14 @@ function Search() {
 
   const handleHideResults = () => {
     setInputFocus(false);
+  };
+
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(' ')) {
+      setSearchValue(searchValue); //nếu giá trị KHÔNG phải là khoảng trắng  thì mới thực hiện setSearchValue()
+      //hoặc: searchValue.startsWith(' ') là nếu giá trị là khoảng trắng thì return ko làm gì hết, else mới thực hiên set lại state
+    }
   };
 
   return (
@@ -83,7 +91,7 @@ function Search() {
           type="text"
           placeholder="Tìm kiếm"
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleChange}
           onFocus={setInputFocus}
         />
 

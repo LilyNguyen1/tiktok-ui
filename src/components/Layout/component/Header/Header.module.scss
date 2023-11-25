@@ -31,6 +31,10 @@
   }
 }
 
+.logo-link {
+  display: flex;
+}
+
 //Actions
 
 .actions {
@@ -95,7 +99,7 @@
 .download-text {
   margin-top: 21px;
   color: rgb(22, 24, 35);
-  font-family: 'IBM Plex Sans', TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+  font-family: var(--font-family);
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 21px;
