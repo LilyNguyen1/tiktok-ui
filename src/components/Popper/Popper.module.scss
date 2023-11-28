@@ -10,7 +10,8 @@
   list-style-type: none;
   padding-inline-start: 0px;
   flex-direction: column;
-  // display: flex;
+  display: flex;
+  flex-direction: column;
   // align-items: center;
   // justify-content: center; ẩn max-hight khi có popper cho download icon.
 }

@@ -16,7 +16,7 @@ const defaultFn = () => {};
 // nếu users tiếp tục chọn vào option mà nó có "children" (level 3) thì sẽ tiếp tục có mảng mới và setState => render mảng mới ra UI.
 // Khi ấn back thì tiến hành xoá phần tử cuối cùng để render ra phần tử trước đó.
 
-function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn, ...passProps }) {
   const [menuLevel, setmenuLevel] = useState([{ data: items }]); //menuLevel là 1 []
   const current = menuLevel[menuLevel.length - 1];
   // current nghĩa là object hiện tại.
@@ -62,7 +62,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
                 }}
               />
             )}
-            {renderItems()}
+            <div className={cx('menu-body')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
