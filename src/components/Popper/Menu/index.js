@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
@@ -56,7 +58,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
           <PopperWrapper className={cx('menu-popper')}>
             {menuLevel.length > 1 && ( // nghĩa là khi ở level 1 thì [] menuLevel có 1 element là {items} thì Header sẽ ko hiện ra, sau khi bấm vào level 2 thì [] này có 2 e, đáp ứng điều kiện nên Header được render
               <Header
-                title="Language"
+                title={current.title}
                 onBack={() => {
                   setmenuLevel((prev) => prev.slice(0, prev.length - 1));
                 }}
@@ -74,5 +76,12 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
     </Tippy>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+  items: PropTypes.array,
+  hideOnClick: PropTypes.bool,
+  onChange: PropTypes.func,
+};
 
 export default Menu;
