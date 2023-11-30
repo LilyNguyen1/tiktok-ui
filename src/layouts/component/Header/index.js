@@ -24,7 +24,7 @@ import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Images';
 import Search from '../Search';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -122,7 +122,7 @@ function Header() {
       <div className={cx('inner')}>
         {/* Logo */}
         <div className={cx('logo')}>
-          <Link to={routesConfig.home} className={cx('logo-link')}>
+          <Link to={config.routes.home} className={cx('logo-link')}>
             <img src={images.logo} alt="Tiktok" />
           </Link>
         </div>
@@ -134,7 +134,7 @@ function Header() {
         <div className={cx('actions')}>
           {/* Upload */}
           <div className={cx('upload-container')}>
-            <a href={routesConfig.upload} className={cx('upload-link')}>
+            <a href={config.routes.upload} className={cx('upload-link')}>
               <div className={cx('upload')}>
                 <UploadIcon className={cx('upload-icon')} />
                 <span className={cx('upload-text')}>Tải lên</span>
@@ -205,7 +205,7 @@ function Header() {
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
               <div className={cx('avatar')}>
-                <a href={routesConfig.profile} className={cx('avatar-link')}>
+                <a href={config.routes.profile} className={cx('avatar-link')}>
                   <Image
                     className={cx('user-avatar')}
                     src={images.avatar}

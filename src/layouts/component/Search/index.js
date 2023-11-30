@@ -9,7 +9,7 @@ import { SearchIcon } from '~/components/Icons';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/routes/hooks';
-import * as searchServices from '~/apiServices/searchService';
+import * as searchService from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +39,7 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true); //before call API set it true
 
-      const result = await searchServices.search(debounced);
+      const result = await searchService.search(debounced);
 
       setSearchResult(result);
       setLoading(false);
@@ -67,7 +67,7 @@ function Search() {
   };
 
   return (
-    // Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context. 
+    // Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
     <div>
       <TippyHeadless
         interactive
