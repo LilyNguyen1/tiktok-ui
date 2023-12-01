@@ -1,14 +1,14 @@
-import config from '~/config';
+import config from '~/config/config';
 
 //Layouts
-import { HeaderOnly } from '~/layouts';
+import { HeaderOnly } from '~/layouts/layouts';
 
 //Pages
-import Home from '~/pages/Home';
-import Following from '~/pages/Following';
-import Profile from '~/pages/Profile';
-import Upload from '~/pages/Upload';
-import Search from '~/pages/Search';
+import Home from '~/pages/Home/Home';
+import Following from '~/pages/Following/Following';
+import Profile from '~/pages/Profile/Profile';
+import Upload from '~/pages/Upload/Upload';
+import Search from '~/pages/Search/Search';
 
 //Public Route
 const publicRoutes = [

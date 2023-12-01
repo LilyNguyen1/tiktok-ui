@@ -13,18 +13,18 @@ import {
   faHouse,
   faLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
+import { UploadIcon, DownloadIcon, MessageIcon, InboxIcon } from '~/components/Icons/Icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import Button from '~/components/Button';
+import Button from '~/components/Button/Button.js';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import Menu from '~/components/Popper/Menu';
-import Image from '~/components/Images';
-import Search from '../Search';
-import config from '~/config';
+import Menu from '~/components/Popper/Menu/Menu';
+import Image from '~/components/Images/Image';
+import Search from '../Search/Search';
+import config from '~/config/config';
 
 const cx = classNames.bind(styles);
 

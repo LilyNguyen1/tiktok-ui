@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import classNames from 'classnames/bind';
-import Button from '~/components/Button';
+import Button from '~/components/Button/Button.js';
 import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 function MenuItem({ data, onClick }) {
   const classes = cx('menu-item', {
     separate: data.separate,
-  })
+  });
   return (
     <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
       <span className={cx('menu-icon')}>{data.icon}</span>
@@ -21,7 +21,7 @@ function MenuItem({ data, onClick }) {
 MenuItem.propTypes = {
   data: PropTypes.object.isRequired,
   onClick: PropTypes.func,
-}
+};
 
 export default MenuItem;
 // ở đây khi thêm leftIcon vào props thì không nhận được mặc dù đã thêm leftIcon ở Button,
