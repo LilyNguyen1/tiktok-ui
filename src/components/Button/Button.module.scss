@@ -34,6 +34,7 @@
 .primary {
   color: var(--white);
   background-color: var(--primary);
+  margin-left: 14px;
   &:hover {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
   }
@@ -42,6 +43,7 @@
 .outline {
   color: var(--primary);
   border-color: currentColor;
+  margin-left: 14px;
 
   &:hover {
     background-color: rgba(254, 44, 85, 0.08);
@@ -51,6 +53,8 @@
 .text {
   border: 1px solid rgba(22, 24, 35, 0.12);
   border-radius: 2px;
+  margin-left: 14px;
+
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
   }

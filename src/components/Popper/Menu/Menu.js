@@ -46,6 +46,29 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
     });
   };
 
+  const handleBack = () => {
+    setmenuLevel((prev) => prev.slice(0, prev.length - 1));
+  }
+
+  const renderResult = (attrs) => (
+    <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+      <PopperWrapper className={cx('menu-popper')}>
+        {menuLevel.length > 1 && ( // nghĩa là khi ở level 1 thì [] menuLevel có 1 element là {items} thì Header sẽ ko hiện ra, sau khi bấm vào level 2 thì [] này có 2 e, đáp ứng điều kiện nên Header được render
+          <Header
+            title={current.title}
+            onBack={handleBack}
+          />
+        )}
+        <div className={cx('menu-body')}>{renderItems()}</div>
+      </PopperWrapper>
+    </div>
+  )
+
+  
+  const handleResetMenu = () => {
+    setmenuLevel((prev) => prev.slice(0, 1));
+  }
+
   return (
     <Tippy
       interactive
@@ -53,24 +76,8 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn,
       offset={[12, 10]}
       placement="bottom-end"
       hideOnClick={hideOnClick}
-      render={(attrs) => (
-        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-          <PopperWrapper className={cx('menu-popper')}>
-            {menuLevel.length > 1 && ( // nghĩa là khi ở level 1 thì [] menuLevel có 1 element là {items} thì Header sẽ ko hiện ra, sau khi bấm vào level 2 thì [] này có 2 e, đáp ứng điều kiện nên Header được render
-              <Header
-                title={current.title}
-                onBack={() => {
-                  setmenuLevel((prev) => prev.slice(0, prev.length - 1));
-                }}
-              />
-            )}
-            <div className={cx('menu-body')}>{renderItems()}</div>
-          </PopperWrapper>
-        </div>
-      )}
-      onHide={() => {
-        setmenuLevel((prev) => prev.slice(0, 1));
-      }}
+      render={renderResult}
+      onHide={handleResetMenu}//khi tối ưu tách hàm, những hàm bắt đầu bằng on... thì đặt tên là handle...
     >
       {children}
     </Tippy>

@@ -198,7 +198,14 @@ function Header() {
             <>
               {/* Login & Register  */}
               {/* <Button text>Đăng nhập</Button> */}
-              <Button primary>Log in</Button>
+              <Button primary to='./'>Đăng nhập</Button>
+
+              {/* Download: tạm thời hack để đây, vì có currentUser thì vị trí nút download khác nhau, chưa biết làm. */}
+              <Tippy delay={[0, 50]} content="Tải về" placement="bottom">
+                <div className={cx('action-btn')}>
+                  <DownloadIcon />
+                </div>
+              </Tippy>
             </>
           )}
 
