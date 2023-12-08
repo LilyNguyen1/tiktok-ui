@@ -7,9 +7,10 @@
 .container {
   margin-top: var(--default-layout-header-height);
   width: var(--default-layout-width);
+  max-width: 100%;
   display: flex;
-  padding-left: var(--default-layout-horizontal-spacer-left);
-  padding-right: var(--default-layout-horizontal-spacer-right);
+  // padding-left: var(--default-layout-horizontal-spacer-left);
+  // padding-right: var(--default-layout-horizontal-spacer-right);
 }
 
 .content {
