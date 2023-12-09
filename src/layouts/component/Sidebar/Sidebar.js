@@ -4,6 +4,8 @@ import styles from './Sidebar.module.scss';
 import SidebarMenu from './Menu/SidebarMenu';
 import SidebarMenuItem from './Menu/SidebarMenuItem';
 import config from '~/config/config';
+import SuggestedAccounts from '~/components/SuggestedAccounts/SuggestedAccounts.js';
+
 import { 
   DiscoverIcon, 
   FollowIcon, 
@@ -16,6 +18,7 @@ import {
 } from '~/components/Icons/Icons';
 
 const cx = classNames.bind(styles);
+
 
 function Sidebar() {
   return (
@@ -48,7 +51,12 @@ function Sidebar() {
           activeIcon={<ActiveLiveIcon />}
 
         />
+      
       </SidebarMenu>
+
+      <SuggestedAccounts label='Suggested accounts' />
+      <SuggestedAccounts label='Following accounts' />
+
     </aside>
   )
 }
